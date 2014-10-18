@@ -88,19 +88,8 @@ var through = require("through2"),
 	                        }
 							setTimeout(function(){ nextReplace(err); }, 1150); //TODO: Add token option so that more concurrent calls can be made
 						}else{
-							// console.log(response.headers['content-encoding']);
-							// if(response.headers['content-encoding'] == 'gzip'){
-						 //        zlib.gunzip(downloadedContent, function(err, dezipped) {
-						 //            console.log(dezipped.substring(0,100));
-						 //        });
-					  //   	}
-							// var assetFile = fs.createWriteStream(assetPath,{flags: 'w', encoding: 'utf-8'});
 							var hash = md5(downloadedContent, "md5", "hex");
 							var assetPath = options.downloadPath+"/"+hash+"."+replaceOrder.filetype;
-							// var assetFile = new gutil.File({path:assetPath, contents: new Buffer(downloadedContent)} );
-							// var assetFile = fs.createWriteStream(assetPath,{flags: 'w', encoding: 'utf-8'});
-							// assetFile.write(downloadedContent);
-
 							var assetdirectory = path.dirname(assetPath);
 							
 							if (!fs.existsSync(assetdirectory)) {
@@ -131,7 +120,6 @@ var through = require("through2"),
 						content = content.replace(new RegExp('(<script.+src=[\'"])'+order.replace+'(["\'])','gm'),'$1'+order.newPath+'$2');
 					});
 					
-					// http://nodejs.org/api/buffer.html
 					file.contents = new Buffer(String(content));
 
 					that.push(file);
