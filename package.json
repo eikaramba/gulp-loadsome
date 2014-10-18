@@ -1,0 +1,41 @@
+{
+  "name": "gulp-loadsome",
+  "version": "0.9.0",
+  "description": "Replaces references of loadso.me into their downloaded and concenated local counterparts",
+  "homepage": "https://loadso.me",
+  "keywords": [
+    "gulpplugin"
+  ],
+  "author": {
+    "name": "Eike Thies",
+    "url": "https://github.com/eikaramba"
+  },
+  "main": "index.js",
+  "repository": "eikaramba/gulp-loadsome",
+  "scripts": {
+    "test": "istanbul test _mocha --report html -- test/*.js --reporter spec",
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  },
+  "dependencies": {
+    "through2": "*",
+    "gulp-util": "~3.0.1",
+    "lodash": "~2.4.1",
+    "request": "~2.45.0",
+    "crypto": "~0.0.3",
+    "async": "~0.9.0"
+  },
+  "devDependencies": {
+    "coveralls": "*",
+    "event-stream": "*",
+    "gulp-mocha": "^1.1.1",
+    "istanbul": "*",
+    "mocha": "*",
+    "mocha-lcov-reporter": "*",
+    "should": "~4.0.4"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">=1.2.10"
+  },
+  "license": "MIT"
+}
