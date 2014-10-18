@@ -13,7 +13,7 @@
   "main": "index.js",
   "repository": "eikaramba/gulp-loadsome",
   "scripts": {
-    "test": "istanbul test _mocha --report html -- test/*.js --reporter spec",
+    "test": "istanbul test _mocha --report html -- test/*.js --reporter spec"
   },
   "dependencies": {
     "through2": "*",
