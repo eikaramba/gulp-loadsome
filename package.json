@@ -1,6 +1,6 @@
 {
   "name": "gulp-loadsome",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Replaces references of loadso.me into their downloaded and concenated local counterparts",
   "homepage": "https://loadso.me",
   "keywords": [
