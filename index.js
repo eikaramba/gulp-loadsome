@@ -70,12 +70,16 @@ var through = require("through2"),
 					replaceOrder.path = result[2];
 					replaceOrder.replace = result[1]+result[2];
 					replaceOrder.filetype = replaceOrder.path.split(".").pop();
+					if(replaceOrder.filetype.indexOf('~')!=-1){ //remove token for final filename, only relevant for http call
+                        replaceOrder.filetype = replaceOrder.filetype.substr(0, replaceOrder.filetype.indexOf('~'));
+                    }
 					gutil.log("found & download: " + gutil.colors.cyan(replaceOrder.replace));
 
 					request({
 						url: "https://loadso.me"+replaceOrder.path,
 						headers: {
-        					'Accept': 'text/plain, application/javascript, text/css'
+        					'Accept': 'text/plain, application/javascript, text/css',
+                            'Referer': 'loadsomeTask'
     					},
     					gzip: true
     				},
